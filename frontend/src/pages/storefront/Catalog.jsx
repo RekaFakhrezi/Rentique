@@ -15,7 +15,7 @@ export function Catalog() {
   const [showFilters, setShowFilters] = useState(false)
   const products = useResource('/clothings')
   const categories = useResource('/categories')
-  const items = products.data || []
+  const items = Array.isArray(products.data) ? products.data : []
   const types = params.get('type') || ''
   const query = params.get('q') || ''
   const size = params.get('size') || ''

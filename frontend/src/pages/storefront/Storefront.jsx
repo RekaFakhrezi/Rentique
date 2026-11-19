@@ -77,7 +77,7 @@ const steps = [
 
 export function Home() {
   const products = useResource('/clothings')
-  const list = products.data || []
+  const list = Array.isArray(products.data) ? products.data : []
   // Showcase the three clothing types before filling the remaining space.
   const featured = [...new Set([...Object.keys(clothingTypes).map(type => list.find(p => p.type === type)), ...list])].filter(Boolean).slice(0, 4)
   return <main className="rt-home">
