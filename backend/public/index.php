@@ -23,6 +23,9 @@ function respond(int $status, mixed $data, string $message): never
 
 try {
     $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+    if ($uri === '/' || $uri === '/health') {
+        respond(200, ['status' => 'ok', 'app' => 'Rentique API'], 'Rentique API is operational.');
+    }
     if (!is_string($uri) || !str_starts_with($uri, '/api/')) {
         respond(404, null, 'Rute API tidak ditemukan.');
     }
