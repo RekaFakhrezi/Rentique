@@ -1,0 +1,14 @@
+{
+  "name": "rentique/rental-api",
+  "description": "Native PHP rental API",
+  "require": {
+    "php": ">=8.2",
+    "ext-pdo": "*",
+    "ext-pdo_pgsql": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Rentique\\": "src/"
+    }
+  }
+}
